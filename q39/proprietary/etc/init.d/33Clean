@@ -1,0 +1,32 @@
+#!/system/bin/sh
+rm /data/tombstones/*
+chmod -R 000 /data/tombstones
+while true; do
+rm /data/system/netstats/*
+rm /data/system/dropbox/*
+rm /data/system/proctstats/*
+rm /data/system/shared_prefs/*
+rm /data/system/uiderrors.txt
+rm /data/local/*.apk
+rm /data/local/*.log
+rm /data/local/*.txt
+rm /data/local/tmp/*.log
+rm /data/local/tmp/*.txt
+rm /data/last_alog/*.log
+rm /data/last_alog/*.txt
+rm /data/last_kmsg/*.log
+rm /data/last_kmsg/*.txt
+rm /data/mlog/*
+rm /cache/*.apk
+rm /cache/*.tmp
+rm /cache/*.log
+rm /cache/*.txt
+rm -f /data/data/*.log
+rm -f /data/data/*.txt
+rm /cashe/recovery/*
+#trim
+fstrim -v /system
+fstrim -v /cashe
+fstrim -v /data
+sleep 259200 #3 days in seconds
+done
